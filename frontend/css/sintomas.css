@@ -53,6 +53,11 @@ input[type="checkbox"]:checked + label {
     font-weight: bold;
 }
 
+.opcoes-ocultas {
+    display: none;
+    margin-top: 20px;
+}
+
 button[type="submit"] {
     background-color: #0a5567;
     color: white;
