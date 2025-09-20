@@ -19,11 +19,12 @@ form {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Green symptom boxes */
-input[type="checkbox"] {
-    margin-right: 10px;
-    transform: scale(1.2);
-    accent-color: #0C6980;
+/* Sintoma items container */
+.sintoma-item {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 a {
@@ -31,31 +32,88 @@ a {
     color: #000000;
 }
 
-label {
-    display: inline-block;
-    padding: 12px 15px;
-    margin: 8px 0;
+.sintoma-label {
+    display: block;
+    padding: 15px 20px;
+    margin: 0;
     background-color: #0C6980;
     color: white;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     width: 100%;
     box-sizing: border-box;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
 }
 
-label:hover {
+.sintoma-label:hover {
     background-color: #0a5567;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(12, 105, 128, 0.3);
 }
 
-input[type="checkbox"]:checked + label {
+.sintoma-label.ativo {
     background-color: #0a5567;
     font-weight: bold;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.sintoma-label::after {
+    content: '▼';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    font-size: 12px;
+}
+
+.sintoma-label.ativo::after {
+    transform: translateY(-50%) rotate(180deg);
 }
 
 .opcoes-ocultas {
     display: none;
-    margin-top: 20px;
+    background-color: #f8fbfc;
+    padding: 15px 20px;
+    border: 2px solid #0C6980;
+    border-top: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 0;
+}
+
+.opcoes-ocultas button {
+    background-color: #ffffff;
+    color: #0C6980;
+    border: 2px solid #e1f2f6;
+    padding: 10px 16px;
+    margin: 5px 8px 5px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.opcoes-ocultas button:hover {
+    background-color: #e1f2f6;
+    border-color: #0C6980;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(12, 105, 128, 0.2);
+}
+
+.opcoes-ocultas button.selecionado {
+    background-color: #0C6980;
+    color: white;
+    border-color: #0C6980;
+    font-weight: bold;
+    transform: scale(1.05);
+    box-shadow: 0 3px 10px rgba(12, 105, 128, 0.4);
 }
 
 button[type="submit"] {

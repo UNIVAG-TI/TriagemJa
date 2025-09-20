@@ -10,41 +10,131 @@
     <a href="../index.html">Voltar</a>
     <h1>O que você está sentindo?</h1>
     <form>
-        <input type="checkbox" id="febre" name="sintomas" value="febre">
-        <label for="febre">Febre</label><br>
-        <div class="opcoes-ocultas">
-            <button>Com catarro</button>
-            <button>Sem catarro</button>
+        <div class="sintoma-item">
+            <label class="sintoma-label" data-sintoma="febre">Febre</label>
+            <div class="opcoes-ocultas" id="opcoes-febre">
+                <button type="button" data-opcao="maior-38-5">Maior que 38,5°C</button>
+                <button type="button" data-opcao="menor-38-5">Menor que 38,5°C</button>
+                <button type="button" data-opcao="nao-medir">Não medido</button>
+            </div>
         </div>
 
-        <input type="checkbox" id="tosse" name="sintomas" value="tosse">
-        <label for="tosse">Tosse</label><br>
+        <div class="sintoma-item">
+            <label class="sintoma-label" data-sintoma="tosse">Tosse</label>
+            <div class="opcoes-ocultas" id="opcoes-tosse">
+                <button type="button" data-opcao="com-catarro">Com catarro</button>
+                <button type="button" data-opcao="sem-catarro">Sem catarro</button>
+                <button type="button" data-opcao="com-sangue">Com sangue</button>
+                <button type="button" data-opcao="seca">Seca</button>
+            </div>
+        </div>
 
-        <input type="checkbox" id="cansaco" name="sintomas" value="cansaco">
-        <label for="cansaco">Cansaço</label><br>
+        <div class="sintoma-item">
+            <label class="sintoma-label" data-sintoma="dor-corpo">Dor no corpo</label>
+            <div class="opcoes-ocultas" id="opcoes-dor-corpo">
+                <button type="button" data-opcao="leve">Leve</button>
+                <button type="button" data-opcao="moderada">Moderada</button>
+                <button type="button" data-opcao="intensa">Intensa</button>
+            </div>
+        </div>
 
-        <input type="checkbox" id="dificuldade-respirar" name="sintomas" value="dificuldade-respirar">
-        <label for="dificuldade-respirar">Dificuldade para respirar</label><br>
+        <div class="sintoma-item">
+            <label class="sintoma-label" data-sintoma="perda-paladar-olfato">Perda de paladar ou olfato</label>
+            <div class="opcoes-ocultas" id="opcoes-perda-paladar-olfato">
+                <button type="button" data-opcao="total">Total</button>
+                <button type="button" data-opcao="parcial">Parcial</button>
+                <button type="button" data-opcao="so-paladar">Só paladar</button>
+                <button type="button" data-opcao="so-olfato">Só olfato</button>
+            </div>
+        </div>
 
-        <input type="checkbox" id="dor-corpo" name="sintomas" value="dor-corpo">
-        <label for="dor-corpo">Dor no corpo</label><br>
+        <div class="sintoma-item">
+            <label class="sintoma-label" data-sintoma="dor-garganta">Dor de garganta</label>
+            <div class="opcoes-ocultas" id="opcoes-dor-garganta">
+                <button type="button" data-opcao="leve">Leve</button>
+                <button type="button" data-opcao="moderada">Moderada</button>
+                <button type="button" data-opcao="intensa">Intensa</button>
+                <button type="button" data-opcao="dificuldade-engolir">Dificuldade para engolir</button>
+            </div>
+        </div>
 
-        <input type="checkbox" id="perda-paladar-olfato" name="sintomas" value="perda-paladar-olfato">
-        <label for="perda-paladar-olfato">Perda de paladar ou olfato</label><br>
+        <div class="sintoma-item">
+            <label class="sintoma-label" data-sintoma="congestao-nasal">Congestão nasal</label>
+            <div class="opcoes-ocultas" id="opcoes-congestao-nasal">
+                <button type="button" data-opcao="leve">Leve</button>
+                <button type="button" data-opcao="moderada">Moderada</button>
+                <button type="button" data-opcao="intensa">Intensa</button>
+                <button type="button" data-opcao="com-secrecao">Com secreção</button>
+            </div>
+        </div>
 
-        <input type="checkbox" id="dor-garganta" name="sintomas" value="dor-garganta">
-        <label for="dor-garganta">Dor de garganta</label><br>
+        <div class="sintoma-item">
+            <label class="sintoma-label" data-sintoma="diarreia">Diarreia</label>
+            <div class="opcoes-ocultas" id="opcoes-diarreia">
+                <button type="button" data-opcao="leve">Leve (1-3 vezes/dia)</button>
+                <button type="button" data-opcao="moderada">Moderada (4-6 vezes/dia)</button>
+                <button type="button" data-opcao="intensa">Intensa (mais de 6 vezes/dia)</button>
+                <button type="button" data-opcao="com-sangue">Com sangue</button>
+            </div>
+        </div>
 
-        <input type="checkbox" id="congestao-nasal" name="sintomas" value="congestao-nasal">
-        <label for="congestao-nasal">Congestão nasal</label><br>
-
-        <input type="checkbox" id="diarreia" name="sintomas" value="diarreia">
-        <label for="diarreia">Diarreia</label><br>
-
-        <input type="checkbox" id="nausea-vomito" name="sintomas" value="nausea-vomito">
-        <label for="nausea-vomito">Náusea ou vômito</label><br>
+        <div class="sintoma-item">
+            <label class="sintoma-label" data-sintoma="nausea-vomito">Náusea ou vômito</label>
+            <div class="opcoes-ocultas" id="opcoes-nausea-vomito">
+                <button type="button" data-opcao="so-nausea">Só náusea</button>
+                <button type="button" data-opcao="vomito-ocasional">Vômito ocasional</button>
+                <button type="button" data-opcao="vomito-frequente">Vômito frequente</button>
+                <button type="button" data-opcao="com-sangue">Com sangue</button>
+            </div>
+        </div>
 
         <button type="submit">Enviar</button>
     </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sintomaLabels = document.querySelectorAll('.sintoma-label');
+            const selectedSintomas = new Map();
+            
+            sintomaLabels.forEach(function(label) {
+                label.addEventListener('click', function() {
+                    const sintoma = this.getAttribute('data-sintoma');
+                    const opcoesDiv = document.getElementById('opcoes-' + sintoma);
+                    
+                    if (opcoesDiv.style.display === 'block') {
+                        opcoesDiv.style.display = 'none';
+                        this.classList.remove('ativo');
+                        selectedSintomas.delete(sintoma);
+                    } else {
+                        document.querySelectorAll('.opcoes-ocultas').forEach(div => {
+                            div.style.display = 'none';
+                        });
+                        document.querySelectorAll('.sintoma-label').forEach(lbl => {
+                            lbl.classList.remove('ativo');
+                        });
+                        
+                        opcoesDiv.style.display = 'block';
+                        this.classList.add('ativo');
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.opcoes-ocultas button').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const sintoma = this.closest('.sintoma-item').querySelector('.sintoma-label').getAttribute('data-sintoma');
+                    const opcao = this.getAttribute('data-opcao');
+                    
+                    document.querySelectorAll(`#opcoes-${sintoma} button`).forEach(btn => {
+                        btn.classList.remove('selecionado');
+                    });
+                    
+                    this.classList.add('selecionado');
+                    selectedSintomas.set(sintoma, opcao);
+                    
+                    console.log('Sintomas selecionados:', Object.fromEntries(selectedSintomas));
+                });
+            });
+        });
+    </script>
 </body>
 </html>
