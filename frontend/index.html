@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem Já</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <h1 id="bemVindo">Bem vindo!</h1>
+    <button class="realizar-triagem" onclick="window.location.href='sintomas.html'">
+        <img src="prancheta.png" alt="Icone Prancheta">
+        Realizar triagem</button>
+
+    <button class="chamar-emergencia">
+        <img src="ambulancia.png" alt="Icone Ambulancia">
+        Chamar emergência</button>
+
+    <script>
+        // Verificar se usuário está logado
+        window.onload = function() {
+            const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+            
+            if (!usuarioLogado) {
+                window.location.href = 'login.html';
+            } else {
+                // Exibir nome do usuário
+                document.getElementById('bemVindo').textContent = `Bem vindo, ${usuarioLogado.nome}!`;
+            }
+        }
+    </script>
+</body>
+</html>

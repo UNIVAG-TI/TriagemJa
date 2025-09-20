@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem Já</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="metade-esquerda">
+            <img src="logo.png" alt="Logo Triagem Já">
+        </div>
+        <div class="metade-direita">
+            <div class="autenticacao">
+                <p>CPF</p>
+                <input type="text" id="cpfLogin" placeholder="Digite seu CPF">
+                <p>Senha</p>
+                <input type="password" id="senhaLogin" placeholder="Digite sua senha">
+                <button class="entrar" onclick="fazerLogin()">Entrar</button>
+                <a href="cadastro.html">Nao tem uma conta? Crie aqui</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fazerLogin() {
+            const cpf = document.getElementById('cpfLogin').value;
+            const senha = document.getElementById('senhaLogin').value;
+
+            if (!cpf || !senha) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            // Buscar usuários salvos
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            
+            // Verificar se existe usuário com CPF e senha corretos
+            const usuario = usuarios.find(user => user.cpf === cpf && user.senha === senha);
+
+            if (usuario) {
+                // Salvar usuário logado
+                localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+                alert('Login realizado com sucesso!');
+                window.location.href = 'index.html';
+            } else {
+                alert('CPF ou senha incorretos.');
+            }
+        }
+    </script>
+</body>
+</html>
