@@ -62,6 +62,7 @@ a {
     border-radius: 8px;
     font-size: 1rem;
     box-sizing: border-box;
+    font-style: italic;
 }
 
 .autenticacao input:focus {

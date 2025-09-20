@@ -26,6 +26,11 @@ input[type="checkbox"] {
     accent-color: #0C6980;
 }
 
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
 label {
     display: inline-block;
     padding: 12px 15px;
