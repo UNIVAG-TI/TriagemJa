@@ -1,0 +1,86 @@
+.cabeca {
+    position: absolute;
+    top: 150px;
+    left: 170px;
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cabeca:hover {
+    background-color: #f0f0f0;
+}
+
+.cabeca.ativo {
+    background-color: #4CAF50;
+    border-color: #45a049;
+}
+
+.ombro-direito {
+    position: absolute;
+    top: 260px;
+    left: 200px;
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ombro-direito:hover {
+    background-color: #f0f0f0;
+}
+
+.ombro-direito.ativo {
+    background-color: #4CAF50;
+    border-color: #45a049;
+}
+
+.intensidade-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    display: none;
+}
+
+.intensidade-container.ativo {
+    display: block;
+}
+
+.intensidade-titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.intensidade-opcoes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.intensidade-opcao {
+    padding: 10px 20px;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.intensidade-opcao:hover {
+    background-color: #f0f0f0;
+}
+
+.intensidade-opcao.selecionada {
+    background-color: #2196F3;
+    color: white;
+    border-color: #1976D2;
+}

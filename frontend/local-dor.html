@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem Já</title>
+    <link rel="stylesheet" href="css/local-dor.css">
+</head>
+<body>
+    <a href="../index.html">Voltar</a>
+    <h1>Onde você está sentindo dor? (Pode escolher mais de um)</h1>
+    <img src="corpo-humano.png" alt="Corpo Humano">
+    <div class="cabeca"></div>
+    <div class="ombro-direito"></div>
+    <div class="ombro esquerdo"></div>
+    <div class="braco direito"></div>
+    <div class="braco esquerdo"></div>
+    <div class="abdomen"></div>
+    <div class="perna direita"></div>
+    <div class="perna esquerda"></div>
+    <div class="pe direito"></div>
+    <div class="pe esquerdo"></div>
+
+    <div id="intensidade-container" class="intensidade-container">
+        <div class="intensidade-titulo">Selecione a intensidade da dor de <span id="parte-selecionada"></span>:</div>
+        <div class="intensidade-opcoes">
+            <div class="intensidade-opcao" data-intensidade="1">Muito Leve (1)</div>
+            <div class="intensidade-opcao" data-intensidade="2">Leve (2)</div>
+            <div class="intensidade-opcao" data-intensidade="3">Moderada (3)</div>
+            <div class="intensidade-opcao" data-intensidade="4">Intensa (4)</div>
+            <div class="intensidade-opcao" data-intensidade="5">Muito Intensa (5)</div>
+        </div>
+    </div>
+    
+    <div class="fundo"></div>
+    <img class="elemento-fundo" src="escala-dor.png" alt="Escala de Dor">
+
+    <script>
+        const partesCorpo = {
+            'cabeca': 'Cabeça',
+            'ombro-direito': 'Ombro Direito'
+        };
+
+        let doresSelecionadas = {};
+
+        function inicializarEventos() {
+            Object.keys(partesCorpo).forEach(classe => {
+                const elemento = document.querySelector(`.${classe}`);
+                if (elemento) {
+                    elemento.addEventListener('click', () => toggleParteDor(classe));
+                }
+            });
+
+            const opcoesIntensidade = document.querySelectorAll('.intensidade-opcao');
+            opcoesIntensidade.forEach(opcao => {
+                opcao.addEventListener('click', () => selecionarIntensidade(opcao));
+            });
+        }
+
+        function toggleParteDor(classe) {
+            const elemento = document.querySelector(`.${classe}`);
+            const intensidadeContainer = document.getElementById('intensidade-container');
+            const parteSelecionada = document.getElementById('parte-selecionada');
+
+            if (elemento.classList.contains('ativo')) {
+                elemento.classList.remove('ativo');
+                delete doresSelecionadas[classe];
+                intensidadeContainer.classList.remove('ativo');
+            } else {
+                document.querySelectorAll('[class*="ativo"]').forEach(el => {
+                    if (el.classList.contains('intensidade-opcao')) return;
+                    el.classList.remove('ativo');
+                });
+
+                elemento.classList.add('ativo');
+                parteSelecionada.textContent = partesCorpo[classe];
+                intensidadeContainer.classList.add('ativo');
+
+                document.querySelectorAll('.intensidade-opcao').forEach(opcao => {
+                    opcao.classList.remove('selecionada');
+                });
+
+                if (doresSelecionadas[classe]) {
+                    const opcaoSalva = document.querySelector(`[data-intensidade="${doresSelecionadas[classe]}"]`);
+                    if (opcaoSalva) opcaoSalva.classList.add('selecionada');
+                }
+            }
+
+            console.log('Dores selecionadas:', doresSelecionadas);
+        }
+
+        function selecionarIntensidade(opcaoSelecionada) {
+            const parteAtiva = document.querySelector('.cabeca.ativo, .ombro-direito.ativo');
+            if (!parteAtiva) return;
+
+            const classeAtiva = Array.from(parteAtiva.classList).find(classe => 
+                classe !== 'ativo' && partesCorpo[classe]
+            );
+
+            document.querySelectorAll('.intensidade-opcao').forEach(opcao => {
+                opcao.classList.remove('selecionada');
+            });
+
+            opcaoSelecionada.classList.add('selecionada');
+            doresSelecionadas[classeAtiva] = opcaoSelecionada.dataset.intensidade;
+
+            console.log('Dores selecionadas:', doresSelecionadas);
+        }
+
+        document.addEventListener('DOMContentLoaded', inicializarEventos);
+    </script>
+</body>
+</html>

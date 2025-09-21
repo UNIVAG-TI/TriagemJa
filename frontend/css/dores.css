@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+button {
+    display: flex;
+    gap: 10px;
+    background-color: #0a5567;
+    color: #ffffff;
+    border: none;
+    padding: 10px 60px;
+    border-radius: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
